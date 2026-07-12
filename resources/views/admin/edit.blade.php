@@ -433,7 +433,7 @@
     <div class="edit-card">
         <h2>Form Edit Busana</h2>
 
-        <form method="POST" action="{{ route('admin.baju.update', $baju) }}">
+        <form method="POST" action="{{ route('admin.baju.update', $baju) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -468,15 +468,22 @@
             </div>
 
             <div class="form-group">
-                <label>Gambar (URL)</label>
-                <div class="gambar-input" style="width:100%">
-                    <span class="gambar-label">URL</span>
-                    <input type="url" name="gambar" id="gambarUrl"
-                           value="{{ str_starts_with($baju->gambar ?? '', 'http') ? $baju->gambar : '' }}"
-                           placeholder="https://..."
-                           oninput="previewImg(this.value)">
+                <label>Gambar</label>
+                <div class="gambar-opsi">
+                    <div class="gambar-input">
+                        <span class="gambar-label">URL</span>
+                        <input type="text" name="gambar" id="gambarUrl"
+                               value="{{ str_starts_with($baju->gambar ?? '', 'http') ? $baju->gambar : '' }}"
+                               placeholder="https://..."
+                               oninput="previewImg(this.value)">
+                    </div>
+                    <div class="gambar-divider">atau</div>
+                    <div class="gambar-input">
+                        <span class="gambar-label">Upload</span>
+                        <input type="file" name="gambar_file" accept="image/*" onchange="previewFile(this)">
+                    </div>
                 </div>
-                <p class="helper-text">Masukkan URL gambar. Format: JPG, PNG, WEBP</p>
+                <p class="helper-text">Masukkan URL atau upload file baru. Format: JPG, PNG, WEBP. Maks 2MB</p>
                 <div class="img-preview" id="imgPreview">
                     <img src="{{ $baju->gambar_url }}" onerror="this.remove()">
                 </div>
@@ -520,6 +527,17 @@
             preview.innerHTML = `<img src="${url}" onerror="this.src='https://placehold.co/160x100/f7ebda/8b5a2b?text=Gagal'">`;
         } else {
             preview.innerHTML = '';
+        }
+    }
+
+    function previewFile(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                document.getElementById('imgPreview').innerHTML = `<img src="${e.target.result}">`;
+                document.getElementById('gambarUrl').value = '';
+            };
+            reader.readAsDataURL(input.files[0]);
         }
     }
 
