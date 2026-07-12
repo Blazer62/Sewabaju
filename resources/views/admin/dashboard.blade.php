@@ -55,6 +55,11 @@
         font-weight: 500;
     }
 
+    .admin-header-left p span.user-name {
+        font-weight: 700;
+        color: var(--coklat-tua);
+    }
+
     .header-actions {
         display: flex;
         gap: 10px;
@@ -997,9 +1002,9 @@
         .stats-row { grid-template-columns: repeat(4, 1fr); gap: 6px; }
         .search-form { margin-left: 0; width: 100%; }
         .search-form input { flex: 1; min-width: 0; }
-        .admin-header { padding: 12px 16px; border-radius: 14px; flex-wrap: wrap; gap: 8px; }
+        .admin-header { padding: 12px 16px; border-radius: 14px; flex-wrap: nowrap; gap: 8px; }
         .header-actions { flex: 1; justify-content: flex-end; }
-        .admin-header-left h1 { font-size: 1rem; }
+        .admin-header-left h1 { font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .admin-header-left h1 span { width: 30px; height: 30px; line-height: 30px; font-size: 0.85rem; }
         .admin-header-left p { display: none; }
         .stat-card { padding: 12px 6px; border-radius: 12px; }
@@ -1048,8 +1053,8 @@
     @media (max-width: 480px) {
         body { padding: 10px; }
         .stats-row { grid-template-columns: repeat(4, 1fr); gap: 4px; }
-        .admin-header { padding: 10px 14px; border-radius: 12px; }
-        .admin-header-left h1 { font-size: 0.9rem; }
+        .admin-header { padding: 10px 14px; border-radius: 12px; flex-wrap: nowrap; }
+        .admin-header-left h1 { font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .admin-header-left h1 span { width: 26px; height: 26px; line-height: 26px; font-size: 0.75rem; }
         .btn-header { padding: 8px 14px; font-size: 0.75rem; }
         .form-card, .list-card { padding: 12px; border-radius: 12px; }
