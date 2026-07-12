@@ -1184,7 +1184,7 @@
         <div class="form-card">
             <h2>Tambah Baju Baru</h2>
 
-            <form method="POST" action="{{ route('admin.baju.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.baju.store') }}">
                 @csrf
 
                 <div class="form-group">
@@ -1216,19 +1216,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Gambar</label>
-                    <div class="gambar-opsi">
-                        <div class="gambar-input">
-                            <span class="gambar-label">URL</span>
-                            <input type="text" name="gambar" id="gambarUrl2" placeholder="https://..." oninput="previewImg2(this.value)">
-                        </div>
-                        <div class="gambar-divider">atau</div>
-                        <div class="gambar-input">
-                            <span class="gambar-label">Upload</span>
-                            <input type="file" name="gambar_file" accept="image/*" onchange="previewFile2(this)">
-                        </div>
+                    <label>Gambar (URL)</label>
+                    <div class="gambar-input" style="width:100%">
+                        <span class="gambar-label">URL</span>
+                        <input type="url" name="gambar" id="gambarUrl2" placeholder="https://..." oninput="previewImg2(this.value)">
                     </div>
-                    <p class="helper-text">Masukkan URL atau upload file. Format: JPG, PNG, WEBP. Maks 2MB</p>
+                    <p class="helper-text">Masukkan URL gambar. Format: JPG, PNG, WEBP</p>
                     <div class="img-preview" id="imgPreview2"></div>
                 </div>
 
@@ -1279,7 +1272,7 @@
                 </div>
 
                 <div class="form-collapse" id="formCollapse">
-                    <form method="POST" action="{{ route('admin.baju.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.baju.store') }}">
                         @csrf
                         <div class="form-row-2">
                             <div class="form-group">
@@ -1310,19 +1303,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Gambar</label>
-                            <div class="gambar-opsi">
-                                <div class="gambar-input">
-                                    <span class="gambar-label">URL</span>
-                                    <input type="text" name="gambar" id="gambarUrl" placeholder="https://..." oninput="previewImg(this.value)">
-                                </div>
-                                <div class="gambar-divider">atau</div>
-                                <div class="gambar-input">
-                                    <span class="gambar-label">Upload</span>
-                                    <input type="file" name="gambar_file" accept="image/*" onchange="previewFile(this)">
-                                </div>
+                            <label>Gambar (URL)</label>
+                            <div class="gambar-input" style="width:100%">
+                                <span class="gambar-label">URL</span>
+                                <input type="url" name="gambar" id="gambarUrl" placeholder="https://..." oninput="previewImg(this.value)">
                             </div>
-                            <p class="helper-text">Masukkan URL atau upload file. Format: JPG, PNG, WEBP. Maks 2MB</p>
+                            <p class="helper-text">Masukkan URL gambar. Format: JPG, PNG, WEBP</p>
                             <div class="img-preview" id="imgPreview"></div>
                         </div>
                         <div class="aksesoris-section">

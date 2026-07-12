@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Baju;
 use App\Models\Aksesoris;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class AdminBajuController extends Controller
 {
@@ -58,7 +57,7 @@ class AdminBajuController extends Controller
         $validated = $request->validate([
             'nama'        => 'required|string|max:100',
             'deskripsi'   => 'nullable|string',
-            'gambar'      => 'nullable|string|max:500',
+            'gambar'      => 'nullable|url|max:500',
             'kategori'    => 'required|array',
             'kategori.*'  => 'required|in:adat,tari,musik',
             'ketersediaan'=> 'nullable|in:tersedia,disewa,tidak_tersedia',
@@ -67,19 +66,13 @@ class AdminBajuController extends Controller
             'nama.required'       => 'Nama baju wajib diisi.',
             'kategori.required'   => 'Pilih minimal 1 kategori.',
             'kategori.*.in'       => 'Kategori tidak valid.',
+            'gambar.url'          => 'Format URL gambar tidak valid.',
         ]);
-
-        // Handle upload file gambar
-        if ($request->hasFile('gambar_file')) {
-            $file = $request->file('gambar_file');
-            $path = $file->store('bajus', 'public');
-            $validated['gambar'] = $path;
-        }
 
         $baju = Baju::create([
             'nama'        => $validated['nama'],
             'deskripsi'   => $validated['deskripsi'] ?? null,
-            'gambar'      => $validated['gambar'] ?: null,
+            'gambar'      => $validated['gambar'] ?? null,
             'kategori'    => $validated['kategori'],
             'ketersediaan'=> $validated['ketersediaan'] ?? 'tersedia',
             'aktif'       => true,
@@ -126,7 +119,7 @@ class AdminBajuController extends Controller
         $validated = $request->validate([
             'nama'        => 'required|string|max:100',
             'deskripsi'   => 'nullable|string',
-            'gambar'      => 'nullable|string|max:500',
+            'gambar'      => 'nullable|url|max:500',
             'kategori'    => 'required|array',
             'kategori.*'  => 'required|in:adat,tari,musik',
             'ketersediaan'=> 'nullable|in:tersedia,disewa,tidak_tersedia',
@@ -134,18 +127,10 @@ class AdminBajuController extends Controller
             'aksesoris_nama.*'  => 'nullable|string|max:100',
         ]);
 
-        if ($request->hasFile('gambar_file')) {
-            if ($baju->gambar && !str_starts_with($baju->gambar, 'http')) {
-                Storage::disk('public')->delete($baju->gambar);
-            }
-            $path = $request->file('gambar_file')->store('bajus', 'public');
-            $validated['gambar'] = $path;
-        }
-
         $baju->update([
             'nama'        => $validated['nama'],
             'deskripsi'   => $validated['deskripsi'] ?? null,
-            'gambar'      => $validated['gambar'] ?: $baju->gambar,
+            'gambar'      => $validated['gambar'] ?? $baju->gambar,
             'kategori'    => $validated['kategori'],
             'ketersediaan'=> $validated['ketersediaan'] ?? 'tersedia',
             'aktif'       => $request->boolean('aktif', false),
@@ -171,9 +156,6 @@ class AdminBajuController extends Controller
     public function destroy(Baju $baju)
     {
         $nama = $baju->nama;
-        if ($baju->gambar && !str_starts_with($baju->gambar, 'http')) {
-            Storage::disk('public')->delete($baju->gambar);
-        }
         $baju->delete();
 
         return redirect()->route('admin.dashboard')
