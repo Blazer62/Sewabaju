@@ -99,6 +99,87 @@
         box-shadow: 0 4px 12px rgba(231,111,81,0.35);
     }
 
+    /* Dropdown Menu Admin */
+    .admin-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .admin-dropdown-toggle {
+        padding: 10px 22px;
+        border-radius: 40px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        text-decoration: none;
+        border: 1.5px solid var(--border);
+        cursor: pointer;
+        font-family: 'Nunito', sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--krem);
+        color: var(--coklat-tua);
+        transition: all 0.2s;
+        user-select: none;
+    }
+
+    .admin-dropdown-toggle:hover {
+        background: var(--emas);
+        border-color: var(--emas);
+    }
+
+    .admin-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        border: 1px solid rgba(230,200,160,0.3);
+        min-width: 180px;
+        z-index: 100;
+        overflow: hidden;
+        padding: 6px;
+    }
+
+    .admin-dropdown.open .admin-dropdown-menu {
+        display: block;
+    }
+
+    .admin-dropdown-menu a,
+    .admin-dropdown-menu button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 10px 14px;
+        border: none;
+        background: none;
+        color: #5a3e2b;
+        font-weight: 600;
+        font-size: 0.82rem;
+        font-family: 'Nunito', sans-serif;
+        text-decoration: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.15s;
+        text-align: left;
+    }
+
+    .admin-dropdown-menu a:hover,
+    .admin-dropdown-menu button:hover {
+        background: #f3e8d5;
+    }
+
+    .admin-dropdown-menu .menu-logout {
+        color: #e76f51;
+    }
+
+    .admin-dropdown-menu .menu-logout:hover {
+        background: #fde8e4;
+    }
+
     /* ── STATS ── */
     .stats-row {
         display: grid;
@@ -1020,13 +1101,18 @@
             <p>Selamat datang, {{ Auth::guard('admin')->user()->name }} · Sanggar Seni Nuansa</p>
         </div>
         <div class="header-actions">
-            <a href="{{ route('penyewa.index') }}" class="btn-header btn-beranda" target="_blank">
-                🏠 Lihat Beranda
-            </a>
-            <form method="POST" action="{{ route('admin.logout') }}" style="margin:0">
-                @csrf
-                <button type="submit" class="btn-header btn-logout">🚪 Logout</button>
-            </form>
+            <div class="admin-dropdown" id="adminDropdown">
+                <div class="admin-dropdown-toggle" onclick="document.getElementById('adminDropdown').classList.toggle('open')">
+                    ⚙️ Menu ▾
+                </div>
+                <div class="admin-dropdown-menu">
+                    <a href="{{ route('penyewa.index') }}" target="_blank">🏠 Lihat Beranda</a>
+                    <form method="POST" action="{{ route('admin.logout') }}" style="margin:0">
+                        @csrf
+                        <button type="submit" class="menu-logout">🚪 Logout</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1492,6 +1578,14 @@
             const target = document.getElementById('section-' + section);
             if (target) target.classList.add('visible');
         });
+    });
+
+    // Close admin dropdown on outside click
+    document.addEventListener('click', function(e) {
+        var dd = document.getElementById('adminDropdown');
+        if (dd && !dd.contains(e.target)) {
+            dd.classList.remove('open');
+        }
     });
 </script>
 @endsection

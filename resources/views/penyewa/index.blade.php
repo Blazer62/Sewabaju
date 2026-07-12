@@ -975,17 +975,6 @@
             <div class="badge">🇮🇩 Sanggar Seni & Rental Busana Nusantara</div>
             <h1>Busana Adat, Pendamping Budaya & Pertunjukan Seni</h1>
             <p>Nuansa Official menghadirkan pengalaman berkesan: sewa kebaya, beskap, songket, hingga pendamping yang paham adat istiadat.</p>
-            <a href="#" class="btn" id="consultBtn">✨ Konsultasi Sekarang</a>
-        </div>
-        <div class="hero-image">
-            <div class="img-wrap">
-                <div class="img-placeholder" style="font-size:4rem; opacity:0.3; user-select:none;">🪅</div>
-                <img src="https://placehold.co/500x400/eedbbc/8b5a2b?text=Nuansa+Official"
-                     alt="Sanggar Seni Nuansa"
-                     style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0;"
-                     onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';"
-                     onerror="this.style.display='none'">
-            </div>
         </div>
     </div>
 
