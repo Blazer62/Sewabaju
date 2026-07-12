@@ -172,6 +172,10 @@
         background: #f3e8d5;
     }
 
+    .admin-dropdown-menu form {
+        display: contents;
+    }
+
     .admin-dropdown-menu .menu-logout {
         color: #e76f51;
     }
