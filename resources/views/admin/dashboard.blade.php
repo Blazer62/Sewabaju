@@ -994,6 +994,7 @@
     @media (max-width: 900px) {
         .stats-row { grid-template-columns: repeat(3, 1fr); }
         .admin-header-left p { display: none; }
+        .admin-header { flex-wrap: nowrap; }
         .form-row-2 { grid-template-columns: 1fr; }
     }
 
