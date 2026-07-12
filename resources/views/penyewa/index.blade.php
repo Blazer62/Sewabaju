@@ -592,7 +592,7 @@
     .kontak-link p { font-size: 0.78rem; color: #7a5a3a; word-break: break-word; }
     .kontak-link .action { font-size: 0.7rem; font-weight: 700; margin-top: 6px; display: inline-block; }
 
-    .kontak-link.whatsapp::before   { background: #25D366; }
+        .kontak-link.whatsapp::before   { background: #25D366; }
     .kontak-link.instagram::before  { background: linear-gradient(135deg, #F58529, #DD2A7B); }
     .kontak-link.tiktok::before     { background: #000; }
     .kontak-link.email-card::before { background: #EA4335; }
@@ -602,6 +602,10 @@
     .kontak-link.instagram .action  { color: #DD2A7B; }
     .kontak-link.tiktok .action     { color: #000; }
     .kontak-link.email-card .action { color: #EA4335; }
+
+    @media (max-width: 768px) {
+        .kontak-link.location { grid-column: span 2; }
+    }
 
     /* ── FOOTER ── */
     .footer {
