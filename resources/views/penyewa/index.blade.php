@@ -660,7 +660,7 @@
 
     @media (max-width: 900px) {
         .hero-image { flex: 0 0 300px; }
-        .kontak-info { grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+        .kontak-info { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
     }
 
     @media (max-width: 768px) {
@@ -807,13 +807,13 @@
         .section-subtitle { font-size: 0.85rem; }
 
         .kontak-card-section { padding: 1.2rem; border-radius: 18px; }
-        .kontak-info { grid-template-columns: repeat(5, 1fr); gap: 0.4rem; margin-top: 1rem; }
-        .kontak-link { padding: 0.7rem 0.3rem; border-radius: 10px; }
-        .kontak-link::before { left: 6px; right: 6px; height: 3px; }
-        .kontak-link .icon { font-size: 1.1rem; width: 1.1rem; height: 1.1rem; margin-bottom: 0.15rem; }
-        .kontak-link h4 { font-size: 0.65rem; margin-bottom: 0.1rem; }
-        .kontak-link p { font-size: 0.55rem; }
-        .kontak-link .action { font-size: 0.55rem; margin-top: 2px; display: none; }
+        .kontak-info { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 1rem; }
+        .kontak-link { padding: 1rem 0.6rem; border-radius: 12px; }
+        .kontak-link::before { left: 10px; right: 10px; height: 3px; }
+        .kontak-link .icon { font-size: 1.3rem; width: 1.3rem; height: 1.3rem; margin-bottom: 0.3rem; }
+        .kontak-link h4 { font-size: 0.78rem; margin-bottom: 0.2rem; }
+        .kontak-link p { font-size: 0.65rem; }
+        .kontak-link .action { font-size: 0.65rem; margin-top: 4px; }
 
         .card-body { padding: 10px 12px; }
         .card-body h3 { font-size: 0.85rem; }
@@ -839,13 +839,13 @@
         .aksesoris-item { font-size: 0.6rem; padding: 4px 6px; }
         .tari-card { border-radius: 14px; }
         .image-container { aspect-ratio: 4/3; }
-        .kontak-info { gap: 0.3rem; }
-        .kontak-link { padding: 0.6rem 0.25rem; border-radius: 8px; }
-        .kontak-link::before { left: 4px; right: 4px; }
-        .kontak-link .icon { font-size: 1rem; width: 1rem; height: 1rem; }
-        .kontak-link h4 { font-size: 0.6rem; }
-        .kontak-link p { font-size: 0.5rem; }
-        .kontak-link .action { display: none; }
+        .kontak-info { gap: 0.5rem; }
+        .kontak-link { padding: 0.8rem 0.5rem; border-radius: 10px; }
+        .kontak-link::before { left: 8px; right: 8px; }
+        .kontak-link .icon { font-size: 1.2rem; width: 1.2rem; height: 1.2rem; }
+        .kontak-link h4 { font-size: 0.72rem; }
+        .kontak-link p { font-size: 0.6rem; }
+        .kontak-link .action { font-size: 0.6rem; }
     }
 
     @media (max-width: 480px) {
@@ -875,12 +875,12 @@
 
         .about-card { padding: 1.2rem; border-radius: 16px; }
 
-        .kontak-info { grid-template-columns: repeat(5, 1fr); gap: 0.3rem; }
-        .kontak-link { padding: 0.55rem 0.2rem; border-radius: 8px; }
-        .kontak-link::before { left: 4px; right: 4px; height: 2px; }
-        .kontak-link .icon { font-size: 0.9rem; width: 0.9rem; height: 0.9rem; margin-bottom: 0.1rem; }
-        .kontak-link h4 { font-size: 0.55rem; margin-bottom: 0.1rem; }
-        .kontak-link p { font-size: 0.48rem; }
+        .kontak-info { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+        .kontak-link { padding: 0.7rem 0.4rem; border-radius: 10px; }
+        .kontak-link::before { left: 6px; right: 6px; height: 2px; }
+        .kontak-link .icon { font-size: 1.1rem; width: 1.1rem; height: 1.1rem; margin-bottom: 0.15rem; }
+        .kontak-link h4 { font-size: 0.68rem; margin-bottom: 0.1rem; }
+        .kontak-link p { font-size: 0.55rem; }
         .kontak-link .action { display: none; }
 
         .footer { padding: 1.8rem 1rem; }
@@ -890,12 +890,12 @@
         .hero-text h1 { font-size: 1.1rem; }
         .hero-image { max-width: 240px; }
         .tari-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; max-width: 100%; }
-        .kontak-info { grid-template-columns: repeat(5, 1fr); gap: 0.2rem; }
-        .kontak-link { padding: 0.5rem 0.15rem; border-radius: 6px; }
-        .kontak-link::before { left: 3px; right: 3px; height: 2px; }
-        .kontak-link .icon { font-size: 0.8rem; width: 0.8rem; height: 0.8rem; margin-bottom: 0.1rem; }
-        .kontak-link h4 { font-size: 0.5rem; }
-        .kontak-link p { display: none; }
+        .kontak-info { grid-template-columns: repeat(2, 1fr); gap: 0.3rem; }
+        .kontak-link { padding: 0.6rem 0.3rem; border-radius: 8px; }
+        .kontak-link::before { left: 5px; right: 5px; height: 2px; }
+        .kontak-link .icon { font-size: 1rem; width: 1rem; height: 1rem; margin-bottom: 0.1rem; }
+        .kontak-link h4 { font-size: 0.62rem; }
+        .kontak-link p { font-size: 0.5rem; }
         .section-title { font-size: 1.15rem; }
     }
 
